@@ -18,7 +18,7 @@ mydate=$(date "+%x %r")
 #CHANGE FROM@EMAIL.COM
 #MAKE SURE YOU HAVE YOUR DROPBOX DIRECTORY SET UP
 
-if [ "$oldip" != "$newip" ]; then
+if [ "$oldip" != "$newip" ] && [ ! -z $oldip ] && [ ! -z $newip ] ; then
 echo "Old IP $oldip became NEW IP $newip" | mail -s "Your server IP changed on  $mydate" YOU@EMAIL.COM -aFrom:FROM@EMAIL.COM
 rm ~/Dropbox/IPADDRESS/IPADDRESS.TXT
 echo "IP checked on $mydate is $newip" > ~/Dropbox/IPADDRESS/IPADDRESS.TXT
